@@ -1,8 +1,6 @@
 package com.example.habittracker.dto.response;
 
-public record StatsWeekResponse(
-        int totalHabits,
-        int completedThisWeek,
-        double completionRate
-) {
+public class StatsWeekResponse {
+    // TODO: Champs de sortie des stats hebdomadaires.
+    // Exemple: totalHabits, completedThisWeek, completionRate
 }

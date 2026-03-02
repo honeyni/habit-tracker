@@ -1,9 +1,6 @@
 package com.example.habittracker.dto.request;
 
-import java.time.LocalDate;
-
-public record CheckInCreateRequest(
-        Long habitId,
-        LocalDate date
-) {
+public class CheckInCreateRequest {
+    // TODO: Champs d'entree pour creer un check-in.
+    // Exemple: habitId, date
 }

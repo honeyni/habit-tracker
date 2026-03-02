@@ -1,1 +1,2 @@
--- Optional SQL seed data
+-- TODO: Donnees SQL optionnelles.
+-- Exemple: INSERT INTO habits (...) VALUES (...);

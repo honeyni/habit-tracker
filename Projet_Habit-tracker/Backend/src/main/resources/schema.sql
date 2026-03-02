@@ -1,1 +1,2 @@
--- Optional SQL schema initialization
+-- TODO: Schema SQL optionnel.
+-- Exemple: CREATE TABLE habits (...);

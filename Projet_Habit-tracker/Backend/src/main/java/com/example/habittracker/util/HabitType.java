@@ -1,7 +1,6 @@
 package com.example.habittracker.util;
 
 public enum HabitType {
-    DAILY,
-    WEEKLY,
-    MONTHLY
+    // TODO: Declarer les types d'habitudes.
+    // Exemple: DAILY, WEEKLY, MONTHLY
 }
