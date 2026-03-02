@@ -1,6 +1,6 @@
 package com.example.habittracker.controller;
 
-import com.example.habittracker.model.Habit;
+import com.example.habittracker.entity.Habit;
 import com.example.habittracker.repository.HabitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
