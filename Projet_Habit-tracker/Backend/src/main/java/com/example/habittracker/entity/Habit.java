@@ -4,7 +4,7 @@ package com.example.habittracker.entity;
 public abstract class Habit {
 
     // Identifiant de l'habitude (unique)
-    private int id;
+    private Long id;
 
     // Nom de l'habitude (ex: "Boire de l'eau")
     private String name;
@@ -13,12 +13,12 @@ public abstract class Habit {
     private int target;
 
     // Getter de id
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
     // Setter de id
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
