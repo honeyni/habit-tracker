@@ -1,24 +1,13 @@
 package com.example.habittracker.dto.request;
 
-import java.time.LocalDate;
-
+// Donnees recues quand on cree un check-in
 public class CheckInCreateRequest {
+    private int habitId;
+    private String date; // format simple: "2026-03-02"
 
-    private Long habitId;
-    private LocalDate date;
+    public int getHabitId() { return habitId; }
+    public void setHabitId(int habitId) { this.habitId = habitId; }
 
-    // Constructeurs
-    public CheckInCreateRequest() {}
-
-    public CheckInCreateRequest(Long habitId, LocalDate date) {
-        this.habitId = habitId;
-        this.date = date;
-    }
-
-    // Getters et setters
-    public Long getHabitId() { return habitId; }
-    public void setHabitId(Long habitId) { this.habitId = habitId; }
-
-    public LocalDate getDate() { return date; }
-    public void setDate(LocalDate date) { this.date = date; }
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
 }
