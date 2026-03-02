@@ -1,6 +1,6 @@
 package com.example.habittracker.controller;
 
-import com.example.habittracker.model.CheckIn;
+import com.example.habittracker.entity.CheckIn;
 import com.example.habittracker.repository.CheckInRepository;
 import com.example.habittracker.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
