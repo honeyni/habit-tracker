@@ -8,7 +8,7 @@ public class WeeklyHabit extends Habit {
     }
 
     // Constructeur pratique
-    public WeeklyHabit(int id, String name, int target) {
+    public WeeklyHabit(Long id, String name, Long target) {
         setId(id);
         setName(name);
         setTarget(target);
