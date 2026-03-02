@@ -4,13 +4,145 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Habit Tracker - Aujourd'hui</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Style général */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f6fa;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2f3640;
+      margin-bottom: 25px;
+    }
+
+    /* Liste des habitudes */
+    #today-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .habit {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffeaa7;
+      margin-bottom: 12px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .habit.completed {
+      background: #dfe6e9;
+      text-decoration: line-through;
+      color: #636e72;
+    }
+
+    .habit:hover {
+      background: #ffeaa7cc;
+    }
+
+    .habit label {
+      flex: 1;
+      cursor: pointer;
+    }
+
+    .habit input[type="checkbox"] {
+      transform: scale(1.3);
+      margin-right: 10px;
+    }
+
+    /* Ajouter une nouvelle habitude pour aujourd'hui */
+    #add-today {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    #new-today {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 8px 0 0 8px;
+      border: 1px solid #ccc;
+      border-right: none;
+      outline: none;
+    }
+
+    #add-button {
+      padding: 10px 15px;
+      background: #fd79a8;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #add-button:hover {
+      background: #ffb6c1;
+    }
+  </style>
 </head>
 <body>
   <main>
     <h1>Aujourd'hui</h1>
-    <div id="today-list"></div>
+    
+    <ul id="today-list">
+      <li class="habit">
+        <label><input type="checkbox"> Boire 2L d'eau</label>
+      </li>
+      <li class="habit">
+        <label><input type="checkbox"> Méditer 10 min</label>
+      </li>
+      <li class="habit">
+        <label><input type="checkbox"> Marcher 30 min</label>
+      </li>
+    </ul>
+
+    <div id="add-today">
+      <input type="text" id="new-today" placeholder="Nouvelle habitude du jour...">
+      <button id="add-button">Ajouter</button>
+    </div>
   </main>
-  <script type="module" src="js/today.js"></script>
+
+  <script>
+    const addButton = document.getElementById('add-button');
+    const newInput = document.getElementById('new-today');
+    const todayList = document.getElementById('today-list');
+
+    // Ajouter une habitude
+    addButton.addEventListener('click', () => {
+      const text = newInput.value.trim();
+      if (text === '') return;
+
+      const li = document.createElement('li');
+      li.className = 'habit';
+      li.innerHTML = `<label><input type="checkbox"> ${text}</label>`;
+      todayList.appendChild(li);
+
+      newInput.value = '';
+    });
+
+    // Marquer une habitude comme complétée
+    todayList.addEventListener('change', (e) => {
+      if (e.target.type === 'checkbox') {
+        e.target.closest('.habit').classList.toggle('completed', e.target.checked);
+      }
+    });
+  </script>
 </body>
 </html>
