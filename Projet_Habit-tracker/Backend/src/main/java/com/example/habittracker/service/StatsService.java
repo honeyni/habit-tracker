@@ -1,6 +1,16 @@
 package com.example.habittracker.service;
 
+import org.springframework.stereotype.Service;
+
+// Service simple pour les statistiques
+@Service
 public class StatsService {
-    // TODO: Calcul des stats hebdomadaires.
-    // Exemple: taux de completion sur 7 jours
+
+    // Exemple: methode placeholder pour un taux de completion
+    public double calculateCompletionRate(int done, int total) {
+        if (total == 0) {
+            return 0.0;
+        }
+        return (done * 100.0) / total;
+    }
 }
