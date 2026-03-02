@@ -4,10 +4,10 @@ package com.example.habittracker.entity;
 public class CheckIn {
 
     // Identifiant du check-in
-    private int id;
+    private Long id;
 
     // Id de l'habitude liee a ce check-in
-    private int habitId;
+    private Long habitId;
 
     // Date du check-in (format simple: "2026-03-02")
     private String date;
@@ -17,14 +17,14 @@ public class CheckIn {
     }
 
     // Constructeur pratique
-    public CheckIn(int id, int habitId, String date) {
+    public CheckIn(Long id, Long habitId, String date) {
         this.id = id;
         this.habitId = habitId;
         this.date = date;
     }
 
     // Getter de id
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -34,12 +34,12 @@ public class CheckIn {
     }
 
     // Getter de habitId
-    public int getHabitId() {
+    public Long getHabitId() {
         return habitId;
     }
 
     // Setter de habitId
-    public void setHabitId(int habitId) {
+    public void setHabitId(Long habitId) {
         this.habitId = habitId;
     }
 
