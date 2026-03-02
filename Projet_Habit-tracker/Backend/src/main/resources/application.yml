@@ -1,7 +1,16 @@
-# TODO: Configurer l'application Spring Boot.
-# Exemple:
-# spring:
-#   datasource:
-#     url: jdbc:h2:mem:habitdb
-# server:
-#   port: 8080
+spring:
+  datasource:
+    url: jdbc:h2:mem:habitdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true  # permet d’accéder à la console H2 via le navigateur
+  jpa:
+    hibernate:
+      ddl-auto: update   # crée et met à jour les tables automatiquement
+    show-sql: true       # affiche les requêtes SQL dans la console
+
+server:
+  port: 8080
