@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:8080/api";
 
+/*GET request*/
 export async function apiGet(path) {
   const response = await fetch(`${BASE_URL}${path}`);
   if (!response.ok) {
@@ -8,6 +9,7 @@ export async function apiGet(path) {
   return response.json();
 }
 
+/*POST request*/
 export async function apiPost(path, payload) {
   const response = await fetch(`${BASE_URL}${path}`, {
     method: "POST",
