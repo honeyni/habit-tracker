@@ -1,6 +1,8 @@
 package com.example.habittracker.exception;
 
+// Erreur quand une ressource n'existe pas
 public class NotFoundException extends RuntimeException {
-    // TODO: Ajouter constructeurs utiles.
-    // Exemple: public NotFoundException(String message) { super(message); }
+    public NotFoundException(String message) {
+        super(message);
+    }
 }
