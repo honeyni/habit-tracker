@@ -1,16 +1,35 @@
 spring:
+  # Nom de l'application (utile dans les logs)
+  application:
+    name: habittracker
+
+  # Configuration de la base de donnees
   datasource:
+    # Base H2 en memoire (disparait quand on arrete l'app)
     url: jdbc:h2:mem:habitdb
     driver-class-name: org.h2.Driver
     username: sa
     password:
-  h2:
-    console:
-      enabled: true  # permet d’accéder à la console H2 via le navigateur
+
+  # Configuration JPA / Hibernate
   jpa:
     hibernate:
-      ddl-auto: update   # crée et met à jour les tables automatiquement
-    show-sql: true       # affiche les requêtes SQL dans la console
+      # update = cree/met a jour les tables automatiquement
+      ddl-auto: update
+    # Affiche les requetes SQL dans la console
+    show-sql: true
+    properties:
+      hibernate:
+        # Formate les requetes SQL pour les lire plus facilement
+        format_sql: true
 
+  # Active l'interface web H2
+  h2:
+    console:
+      enabled: true
+      # URL d'acces: http://localhost:8080/h2-console
+      path: /h2-console
+
+# Port du serveur Spring Boot
 server:
   port: 8080
