@@ -8,7 +8,7 @@ public class DailyHabit extends Habit {
     }
 
     // Constructeur pratique pour creer rapidement une habitude quotidienne
-    public DailyHabit(int id, String name, int target) {
+    public DailyHabit(Long id, String name, Long target) {
         setId(id);
         setName(name);
         setTarget(target);
