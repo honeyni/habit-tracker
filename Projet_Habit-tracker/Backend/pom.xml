@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Fichier Maven du backend Habit Tracker.
+  Il sert a:
+  1) definir le projet
+  2) ajouter les bibliotheques
+  3) configurer la construction de l'application
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Version du format POM -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Parent Spring Boot: gere des versions automatiquement -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.5</version>
+        <relativePath/>
+    </parent>
+
+    <!-- Informations de base du projet -->
+    <groupId>com.example</groupId>
+    <artifactId>habittracker</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>habittracker</name>
+    <description>Backend Spring Boot pour Habit Tracker</description>
+
+    <!-- Version de Java utilisee -->
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <!-- Dependances (bibliotheques) -->
+    <dependencies>
+
+        <!-- Pour creer une API REST (controllers, routes HTTP, JSON) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Pour la base de donnees avec JPA/Hibernate -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Pour valider les champs (ex: @NotNull, @NotBlank) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- Base en memoire (pratique en developpement) -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Bibliotheques de test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Plugins Maven -->
+    <build>
+        <plugins>
+            <!-- Permet de lancer et packager une app Spring Boot -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
