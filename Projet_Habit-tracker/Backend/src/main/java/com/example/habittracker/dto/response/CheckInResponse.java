@@ -1,29 +1,17 @@
 package com.example.habittracker.dto.response;
 
-import java.time.LocalDate;
-
+// Donnees renvoyees au client pour un check-in
 public class CheckInResponse {
+    private int id;
+    private int habitId;
+    private String date;
 
-    private Long id;
-    private Long habitId;
-    private LocalDate date;
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    // Constructeurs
-    public CheckInResponse() {}
+    public int getHabitId() { return habitId; }
+    public void setHabitId(int habitId) { this.habitId = habitId; }
 
-    public CheckInResponse(Long id, Long habitId, LocalDate date) {
-        this.id = id;
-        this.habitId = habitId;
-        this.date = date;
-    }
-
-    // Getters et setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
-    public Long getHabitId() { return habitId; }
-    public void setHabitId(Long habitId) { this.habitId = habitId; }
-
-    public LocalDate getDate() { return date; }
-    public void setDate(LocalDate date) { this.date = date; }
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
 }
