@@ -1,64 +1,52 @@
 package com.example.habittracker.entity;
 
-// CheckIn = validation d'une habitude a une date
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+@Entity
 public class CheckIn {
 
-    // Identifiant du check-in
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Id de l'habitude liee a ce check-in
-    private Long habitId;
+    // Relation avec Habit
+    @ManyToOne
+    @JoinColumn(name = "habit_id", nullable = false)
+    private Habit habit;
 
-    // Date du check-in (format simple: "2026-03-02")
-    private String date;
+    private LocalDate date;
 
-    // Constructeur vide
     public CheckIn() {
     }
 
-    // Constructeur pratique
-    public CheckIn(Long id, Long habitId, String date) {
+    public CheckIn(Long id, Habit habit, LocalDate date) {
         this.id = id;
-        this.habitId = habitId;
+        this.habit = habit;
         this.date = date;
     }
 
-    // Getter de id
     public Long getId() {
         return id;
     }
 
-    // Setter de id
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    // Getter de habitId
-    public Long getHabitId() {
-        return habitId;
+    public Habit getHabit() {
+        return habit;
     }
 
-    // Setter de habitId
-    public void setHabitId(Long habitId) {
-        this.habitId = habitId;
+    public void setHabit(Habit habit) {
+        this.habit = habit;
     }
 
-    // Getter de date
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    // Setter de date
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    // Affichage simple
-    @Override
-    public String toString() {
-        return "CheckIn{id=" + id
-                + ", habitId=" + habitId
-                + ", date='" + date + '\''
-                + "}";
     }
 }
