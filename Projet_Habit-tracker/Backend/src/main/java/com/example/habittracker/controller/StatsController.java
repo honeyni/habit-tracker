@@ -16,13 +16,18 @@ public class StatsController {
     @Autowired
     private CheckInRepository checkInRepository;
 
-    //Retourne tous les check-ins de la semaine pour une habitude donnée.
-
+    // Retourne les check-ins de la semaine pour une habitude
     @GetMapping("/week")
     public List<CheckIn> getWeeklyStats(@RequestParam Long habitId) {
+
         LocalDate today = LocalDate.now();
         LocalDate startOfWeek = DateUtils.startOfWeek(today);
         LocalDate endOfWeek = DateUtils.endOfWeek(today);
-        return checkInRepository.findByHabitIdAndDateBetween(habitId, startOfWeek, endOfWeek);
+
+        return checkInRepository.findByHabit_IdAndDateBetween(
+                habitId,
+                startOfWeek,
+                endOfWeek
+        );
     }
 }
