@@ -4,7 +4,7 @@ package com.example.habittracker.dto.response;
 public class CheckInResponse {
     private Long id;
     private Long habitId;
-    private String date;
+    private LocalDate date;
 
     public int getId() { return id; }
     public void setId(Long id) { this.id = id; }
