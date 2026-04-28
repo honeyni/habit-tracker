@@ -13,7 +13,6 @@ public class CheckInMapper {
 
         response.setId(checkIn.getId());
 
-        // 🔥 correction ici
         response.setHabitId(checkIn.getHabit().getId());
 
         response.setDate(checkIn.getDate());
