@@ -1,6 +1,6 @@
 package com.example.habittracker.mapper;
 
-import com.example.habittracker.dto.CheckInResponse;
+import com.example.habittracker.dto.response.CheckInResponse;
 import com.example.habittracker.entity.CheckIn;
 import org.springframework.stereotype.Component;
 
