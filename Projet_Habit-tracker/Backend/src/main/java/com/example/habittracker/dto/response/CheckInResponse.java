@@ -2,8 +2,8 @@ package com.example.habittracker.dto.response;
 
 // Donnees renvoyees au client pour un check-in
 public class CheckInResponse {
-    private int id;
-    private int habitId;
+    private Long id;
+    private Long habitId;
     private String date;
 
     public int getId() { return id; }
