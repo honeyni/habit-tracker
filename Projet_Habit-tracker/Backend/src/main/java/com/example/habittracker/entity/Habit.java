@@ -1,43 +1,69 @@
 package com.example.habittracker.entity;
 
-// Classe abstraite = classe "parent" des autres habitudes
-public abstract class Habit {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-    // Identifiant de l'habitude (unique)
+@Entity
+public class Habit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Nom de l'habitude (ex: "Boire de l'eau")
     private String name;
-
-    // Objectif a atteindre (ex: 2 fois par jour)
+    private String description;
+    private String type;
     private int target;
 
-    // Getter de id
+    public Habit() {
+    }
+
+    public Habit(Long id, String name, String description, String type, int target) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.type = type;
+        this.target = target;
+    }
+
     public Long getId() {
         return id;
     }
 
-    // Setter de id
     public void setId(Long id) {
         this.id = id;
     }
 
-    // Getter de name
     public String getName() {
         return name;
     }
 
-    // Setter de name
     public void setName(String name) {
         this.name = name;
     }
 
-    // Getter de target
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public int getTarget() {
         return target;
     }
 
-    // Setter de target
     public void setTarget(int target) {
         this.target = target;
     }
