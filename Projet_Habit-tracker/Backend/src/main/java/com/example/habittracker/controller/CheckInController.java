@@ -14,15 +14,15 @@ public class CheckInController {
     @Autowired
     private CheckInRepository checkInRepository;
 
-    // Créer un nouveau check-in
+    // Créer un check-in
     @PostMapping
     public CheckIn createCheckIn(@RequestBody CheckIn checkIn) {
         return checkInRepository.save(checkIn);
     }
 
-    // Récupérer tous les check-ins pour une habitude spécifique
+    // Récupérer les check-ins d'une habitude
     @GetMapping
     public List<CheckIn> getCheckInsByHabit(@RequestParam Long habitId) {
-        return checkInRepository.findByHabitId(habitId);
+        return checkInRepository.findByHabit_Id(habitId);
     }
 }
