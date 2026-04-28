@@ -1,28 +1,23 @@
-package com.example.habittracker.controller;
+package com.example.habittracker.mapper;
 
+import com.example.habittracker.dto.CheckInResponse;
 import com.example.habittracker.entity.CheckIn;
-import com.example.habittracker.repository.CheckInRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Component;
 
-import java.util.List;
+@Component
+public class CheckInMapper {
 
-@RestController
-@RequestMapping("/api/check-ins")
-public class CheckInController {
+    public CheckInResponse toResponse(CheckIn checkIn) {
 
-    @Autowired
-    private CheckInRepository checkInRepository;
+        CheckInResponse response = new CheckInResponse();
 
-    // Créer un check-in
-    @PostMapping
-    public CheckIn createCheckIn(@RequestBody CheckIn checkIn) {
-        return checkInRepository.save(checkIn);
-    }
+        response.setId(checkIn.getId());
 
-    // Récupérer les check-ins d'une habitude
-    @GetMapping
-    public List<CheckIn> getCheckInsByHabit(@RequestParam Long habitId) {
-        return checkInRepository.findByHabit_Id(habitId);
+        // 🔥 correction ici
+        response.setHabitId(checkIn.getHabit().getId());
+
+        response.setDate(checkIn.getDate());
+
+        return response;
     }
 }
