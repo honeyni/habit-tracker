@@ -6,38 +6,39 @@ const newHabitInput = document.getElementById('new-today');
 
 async function loadToday() {
   try {
-    const todayHabits = await apiGet('/today');
+    const habits = await apiGet('/habits');
+
     todayList.innerHTML = '';
-    todayHabits.forEach(habit => {
+
+    habits.forEach(habit => {
       const li = document.createElement('li');
       li.className = 'habit today';
-      li.innerHTML = `<label><input type="checkbox" ${habit.todayChecked ? 'checked' : ''}> ${habit.name}</label>`;
+      li.textContent = habit.name;
       todayList.appendChild(li);
-
-      const checkbox = li.querySelector('input[type="checkbox"]');
-      checkbox.addEventListener('change', async () => {
-        try {
-          await apiPost(`/today/${habit.id}/toggle`, { checked: checkbox.checked });
-        } catch (err) {
-          console.error('Erreur toggle today habit:', err);
-        }
-      });
     });
   } catch (err) {
-    console.error('Erreur chargement today:', err);
+    console.error('Erreur chargement habits:', err);
   }
 }
 
-
-addButton?.addEventListener('click', async () => {
+addButton.addEventListener('click', async () => {
   const name = newHabitInput.value.trim();
-  if (!name) return;
+
+  if (!name) {
+    return;
+  }
+
   try {
-    await apiPost('/today', { name });
+    await apiPost('/habits', {
+      name: name,
+      description: 'Habitude ajoutée depuis le frontend',
+      target: 1
+    });
+
     newHabitInput.value = '';
     loadToday();
   } catch (err) {
-    console.error('Erreur ajout today habit:', err);
+    console.error('Erreur ajout habit:', err);
   }
 });
 
