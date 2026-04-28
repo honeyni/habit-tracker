@@ -18,10 +18,6 @@ public class CheckInController {
     @Autowired
     private CheckInService checkInService;
 
-    /**
-     * POST /api/check-ins
-     * Create a new check-in for a habit
-     */
     @PostMapping
     public ResponseEntity<CheckIn> createCheckIn(@RequestBody CheckIn checkIn) {
         try {
@@ -34,10 +30,6 @@ public class CheckInController {
         }
     }
 
-    /**
-     * GET /api/check-ins?habitId=1
-     * Get all check-ins for a specific habit
-     */
     @GetMapping
     public ResponseEntity<List<CheckIn>> getCheckInsByHabit(@RequestParam Long habitId) {
         try {
@@ -48,10 +40,6 @@ public class CheckInController {
         }
     }
 
-    /**
-     * GET /api/check-ins/{id}
-     * Get a specific check-in by ID
-     */
     @GetMapping("/{id}")
     public ResponseEntity<CheckIn> getCheckInById(@PathVariable Long id) {
         try {
@@ -61,11 +49,7 @@ public class CheckInController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    /**
-     * GET /api/check-ins/habit/{habitId}/date?date=2026-03-02
-     * Get check-ins for a specific habit on a specific date
-     */
+    
     @GetMapping("/habit/{habitId}/date")
     public ResponseEntity<List<CheckIn>> getCheckInsByHabitAndDate(
             @PathVariable Long habitId,
@@ -78,10 +62,6 @@ public class CheckInController {
         }
     }
 
-    /**
-     * PUT /api/check-ins/{id}
-     * Update an existing check-in
-     */
     @PutMapping("/{id}")
     public ResponseEntity<CheckIn> updateCheckIn(
             @PathVariable Long id,
@@ -94,10 +74,7 @@ public class CheckInController {
         }
     }
 
-    /**
-     * DELETE /api/check-ins/{id}
-     * Delete a check-in
-     */
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCheckIn(@PathVariable Long id) {
         try {
