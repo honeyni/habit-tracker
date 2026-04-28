@@ -7,10 +7,10 @@ public class CheckInResponse {
     private String date;
 
     public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     public int getHabitId() { return habitId; }
-    public void setHabitId(int habitId) { this.habitId = habitId; }
+    public void setHabitId(Long habitId) { this.habitId = habitId; }
 
     public String getDate() { return date; }
     public void setDate(String date) { this.date = date; }
